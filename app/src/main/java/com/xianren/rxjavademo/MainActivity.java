@@ -24,32 +24,16 @@ public class MainActivity extends AppCompatActivity {
         Student student = new Student();
         student.name = "xxxxx";
         Subscriber<Student> obj = null;
-
-        Observer observer = new Observer() {
-            @Override
-            public void onCompleted() {
-
-            }
-
-            @Override
-            public void onError(Throwable throwable) {
-
-            }
-
-            @Override
-            public void onNext(Object o) {
-
-            }
-        };
         Observable.just(student).map(new Func1() {
             @Override
             public Object call(Object o) {
+//                接收just传递的数据
                 Student student1 = (Student) o;
                 String str = student1.name;
                 Log.i("flag", "jhfj");
-                return null;
+                return str;
             }
-        }).subscribeOn(Schedulers.io()).subscribe(new Subscriber(obj) {
+        }).subscribeOn(Schedulers.io()).subscribe(new Subscriber() {
             @Override
             public void onCompleted() {
 
@@ -62,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onNext(Object o) {
+//map转换数据类型，接收call返回的数据
                 Student obj = (Student) o;
                 Log.i("flag", "jhfj");
             }
