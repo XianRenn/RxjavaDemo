@@ -4,6 +4,8 @@ package com.xianren.rxjavademo;
  * Created by xianren on 2017/11/30.
  */
 
-public class Student{
-    public  String name;
+public class Teacher {
+    public String name;
+    public int age;
+
 }
